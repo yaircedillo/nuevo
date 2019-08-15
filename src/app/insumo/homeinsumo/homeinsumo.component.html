@@ -1,0 +1,33 @@
+<h2> Insumos Registrados...</h2>
+<br />
+<div class="col">
+    <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Prcio</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Operaciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let insumos of insumo | insumo:filterPost">
+            <th scope="row">{{insumos.id_insumo}}</th>
+            <td>{{insumos.nombre}}</td>
+            <td>{{insumos.precio}}</td>
+            <td>{{insumos.created_at}}</td>
+
+            <td>
+                <a routerLink="/insumo/form/{{insumos.id_insumo}}" class="btn btn-outline-success">Ver/Editar</a>
+                <a (click)="delete(insumos.id_insumo)" class="btn btn-outline-danger">Eliminar</a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

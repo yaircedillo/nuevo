@@ -1,0 +1,74 @@
+<H2> Agrega un nuevo Cliente</H2>
+<div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Nombre.</label>
+        <input [(ngModel)]="cliente.nombre" #nombre="ngModel" type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+        <div *ngIf="nombre.touched && !nombre.valid">
+            <div *ngIf="nombre.errors.required">Es necesario colocar su Nombre </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Apellido Paterno</label>
+        <input [(ngModel)]="cliente.ap_pat" #ap_pat="ngModel" type="text" class="form-control" id="ap_pat" placeholder=" Apellido Paterno" required>
+        <div *ngIf="ap_pat.touched && !ap_pat.valid">
+            <div *ngIf="ap_pat.errors.required">Es necesario colocar su Apellido Paterno</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Apellido Materno</label>
+        <input [(ngModel)]="cliente.ap_mat" type="text" #ap_mat="ngModel" class="form-control" id="ap_mat" placeholder=" Apellido Materno" required>
+        <div *ngIf="ap_mat.touched && !ap_mat.valid">
+            <div *ngIf="ap_mat.errors.required">Es necesario colocar su Apellido Materno</div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <label class="col-lg-4 col-form-label">Genero . </label>
+        <select class="form-control" [(ngModel)]="cliente.genero" id="genero">
+                       <option  value="M">Masculino</option>
+                        <option   value="F">Femenino</option>
+                </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Calle </label>
+        <input [(ngModel)]="cliente.calle" type="text" #calle="ngModel" class="form-control" id="calle" placeholder=" Calle" required>
+        <div *ngIf="calle.touched && !calle.valid">
+            <div *ngIf="calle.errors.required">Es necesario colocar su Calle </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Colonia </label>
+        <input [(ngModel)]="cliente.colonia" type="text" #colonia="ngModel" class="form-control" id="colonia" placeholder=" Colonia" required>
+        <div *ngIf="colonia.touched && !colonia.valid">
+            <div *ngIf="colonia.errors.required">Es necesario colocar su Colonia </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Codigo Postal </label>
+        <input [(ngModel)]="cliente.cp" type="text" #cp="ngModel" class="form-control" id="cp" placeholder=" Codigo Postal" required minlength="5" maxlength="5">
+        <div *ngIf="cp.touched && !cp.valid">
+            <div *ngIf="cp.errors.required">Es necesario colocar su Codigo Postal </div>
+            <div *ngIf="cp.errors.minlength"> Deben ser al menos 5 caracteres </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Correo </label>
+        <input [(ngModel)]="cliente.correo" #correo="ngModel" type="text" class="form-control" id="correo" placeholder=" Correo" email required>
+        <div *ngIf="correo.touched && !correo.valid">
+            <div *ngIf="correo.errors.required">Es necesario colocar su Colocar Correo </div>
+            <div *ngIf="correo.errors.email">Formato incorrecto </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Telefono </label>
+        <input [(ngModel)]="cliente.telefono" type="text" #telefono="ngModel" class="form-control" id="telefono" placeholder=" Telefono" required minlength="10" maxlength="10">
+        <div *ngIf="telefono.touched && !telefono.valid">
+            <div *ngIf="telefono.errors.required">Es necesario colocar su Codigo Postal </div>
+            <div *ngIf="telefono.errors.minlength"> Deben ser al menos 10 caracteres </div>
+        </div>
+    </div>
+
+    <button (click)="saveClient()" class="btn btn-primary btn-block">Guardar</button>
+</div>

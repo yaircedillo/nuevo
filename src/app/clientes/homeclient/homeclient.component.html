@@ -1,0 +1,35 @@
+<h2> Clientes Registrados...</h2>
+<br />
+<div class="col">
+    <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">AP</th>
+            <th scope="col">AM</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Operaciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let clientes of cliente | clientes:filterPost">
+            <th scope="row">{{clientes.id_cliente}}</th>
+            <td>{{clientes.nombre}}</td>
+            <td>{{clientes.ap_pat}}</td>
+            <td>{{clientes.ap_mat}}</td>
+            <td>{{clientes.correo}}</td>
+            <td>{{clientes.telefono}}</td>
+            <td>
+                <a routerLink="/clientes/form/{{clientes.id_cliente}}" class="btn btn-outline-success">Ver/Editar</a>
+                <a (click)="delete(clientes.id_cliente)" class="btn btn-outline-danger">Eliminar</a>
+
+            </td>
+    </tbody>
+</table>

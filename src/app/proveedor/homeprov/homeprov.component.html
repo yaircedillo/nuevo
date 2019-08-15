@@ -1,0 +1,44 @@
+<h2> Proveedores Registrados...</h2>
+<br />
+<div class="col">
+    <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterProv">
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">AP</th>
+            <th scope="col">AM</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Operaciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let proveedores of proveedor | proveedor:filterProv ">
+            <th scope="row">{{proveedores.id_proveedores}}</th>
+            <td>{{proveedores.nombre}}</td>
+            <td>{{proveedores.ap_pat}}</td>
+            <td>{{proveedores.ap_mat}}</td>
+            <td>{{proveedores.correo}}</td>
+            <td>{{proveedores.telefono}}</td>
+            <td>
+                <a routerLink="/proveedor/form/{{proveedores.id_proveedores}}" class="btn btn-outline-success">Ver/Editar</a>
+                <a (click)="delete(proveedores.id_proveedores)" class="btn btn-outline-danger">Eliminar</a>
+
+            </td>
+
+        </tr>
+
+
+    </tbody>
+</table>
+
+<h3> Exportar</h3>
+<div class="container">
+    <a (click)="exportAsXLSX()" class="btn btn-outline-info">EXCEL</a>
+</div>

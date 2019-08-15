@@ -1,0 +1,49 @@
+<H2> Agregar un nuevo Usuario </H2>
+<div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Nombre</label>
+        <input [(ngModel)]="usuario.name" type="text" required #nombre="ngModel" class="form-control" id="name" placeholder="Nombre completo">
+        <div *ngIf="nombre.touched && !nombre.valid">
+            <div *ngIf="nombre.errors.required">Es necesario colocar su Nombre </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar correo</label>
+        <input [(ngModel)]="usuario.email" type="email" class="form-control" #email="ngModel" id="email" placeholder="Email" email required>
+        <div *ngIf="email.touched && !email.valid">
+            <div *ngIf="email.errors.required">Es necesario colocar su Colocar Correo </div>
+            <div *ngIf="email.errors.email">Formato incorrecto </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar contraseña</label>
+        <input [(ngModel)]="usuario.password" type="password" #password="ngModel" required class="form-control" id="password" placeholder="password">
+        <div *ngIf="password.touched && !password.valid">
+            <div *ngIf="password.errors.required">Es necesario colocar su Password </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <label class="col-lg-4 col-form-label">Tipo . </label>
+        <select class="form-control" [(ngModel)]="usuario.tipo" #tipo="ngModel" required id="tipo">
+               <option  value="Administrador">Administrador</option>
+                <option   value="Usuario">Usuario</option>
+        </select>
+        <div *ngIf="tipo.touched && !tipo.valid">
+            <div *ngIf="tipo.errors.required">Es necesario colocar un tipo de usuario </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Usuario</label>
+        <input [(ngModel)]="usuario.user" type="text" required #user="ngModel" class="form-control" id="user" placeholder="Usuario">
+        <div *ngIf="user.touched && !user.valid">
+            <div *ngIf="user.errors.required">Es necesario colocar su Password </div>
+        </div>
+    </div>
+
+
+    <button (click)="saveUsuario()" class="btn btn-primary btn-block">Guardar</button>
+</div>

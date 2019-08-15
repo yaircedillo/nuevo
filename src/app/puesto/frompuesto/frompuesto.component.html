@@ -1,0 +1,13 @@
+<H2> Agregar un nuevo Puesto </H2>
+<div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Colocar Puesto.</label>
+        <input [(ngModel)]="puesto.puesto" type="text" #puesto="ngModel" class="form-control" id="puesto" placeholder="Colocar un puesto de trabajo" required>
+        <div *ngIf="puesto.touched && !puesto.valid">
+            <div *ngIf="puesto.errors.required">Es necesario colocar un Puesto </div>
+        </div>
+    </div>
+
+    <button (click)="savePuesto()" class="btn btn-primary btn-block">Guardar</button>
+</div>

@@ -1,0 +1,47 @@
+<h2> Usuario Registrados...</h2>
+<br />
+<div class="col">
+    <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuarios of usuario  | usuario:filterPost">
+            <th scope="row">{{usuarios.id}}</th>
+            <td>{{usuarios.name}}</td>
+            <th scope="row">{{usuarios.email}}</th>
+            <td>{{usuarios.password}}</td>
+            <td>{{usuarios.tipo}}</td>
+            <td>{{usuarios.user}}</td>
+            <td>{{usuarios.created_at}}</td>
+            <td>
+                <a routerLink="/usuario/form/{{usuarios.id}}" class="btn btn-outline-success">Ver/Editar</a>
+                <a (click)="delete(usuarios.id)" class="btn btn-outline-danger">Eliminar</a>
+
+            </td>
+
+        </tr>
+
+
+    </tbody>
+</table>
+
+<h3> Exportar</h3>
+<div class="container">
+    <a (click)="exportAsXLSX()" class="btn btn-outline-info">EXCEL</a>
+    <a (click)="exportAsXLSXFilter()" class="btn btn-outline-info">Filter</a>
+
+</div>

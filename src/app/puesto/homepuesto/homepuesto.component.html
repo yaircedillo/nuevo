@@ -1,0 +1,32 @@
+<h2> Puestos Registrados...</h2>
+<br />
+<div class="col">
+    <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let puestos of puesto  | puesto:filterPost">
+            <th scope="row">{{puestos.id_puesto}}</th>
+            <td>{{puestos.puesto}}</td>
+            <td>{{puestos.created_at}}</td>
+            <td>
+                <a routerLink="/puesto/form/{{puestos.id_puesto}}" class="btn btn-outline-success">Ver/Editar</a>
+                <a (click)="delete(puestos.id_puesto)" class="btn btn-outline-danger">Eliminar</a>
+
+            </td>
+
+        </tr>
+
+
+    </tbody>
+</table>
